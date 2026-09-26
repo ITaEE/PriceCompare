@@ -1,0 +1,34 @@
+<Application x:Class="PriceCompare.Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <SolidColorBrush x:Key="PrimaryBrush" Color="#2563EB" />
+        <SolidColorBrush x:Key="PanelBrush" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="BorderBrush" Color="#E2E8F0" />
+        <DataTemplate x:Key="OptionalHeaderTemplate">
+            <TextBlock Text="{Binding ., TargetNullValue=None}" />
+        </DataTemplate>
+
+        <Style TargetType="Button">
+            <Setter Property="Padding" Value="14,8" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="MinHeight" Value="36" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="8,6" />
+            <Setter Property="Margin" Value="4" />
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Padding" Value="8,5" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="MinWidth" Value="150" />
+        </Style>
+
+        <Style TargetType="GroupBox">
+            <Setter Property="Margin" Value="0,0,0,12" />
+            <Setter Property="Padding" Value="12" />
+        </Style>
+    </Application.Resources>
+</Application>
