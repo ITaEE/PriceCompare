@@ -8,6 +8,10 @@ The user independently maps the required SKU and Price columns plus optional Nam
 
 The application is intended as a portfolio-grade example of practical C#/.NET automation work for real business data.
 
+## Screenshots
+
+Screenshots will be added after the final UI capture. The planned real captures and their reproducible states are listed in [docs/screenshots/README.md](docs/screenshots/README.md).
+
 ## Features
 
 - XLSX / CSV import without Microsoft Excel
@@ -23,6 +27,21 @@ The application is intended as a portfolio-grade example of practical C#/.NET au
 - search by SKU or product name
 - Excel report generation
 - fully local processing
+
+## Demo
+
+Run the included sample scenario with [samples/price-old.csv](samples/price-old.csv) and [samples/price-new.csv](samples/price-new.csv).
+
+| Metric | Result |
+| --- | ---: |
+| Old rows | 8 |
+| New rows | 8 |
+| Added | 1 |
+| Removed | 1 |
+| Changed | 3 |
+| Unchanged | 4 |
+| Errors | 0 |
+| Duplicates | 0 |
 
 ## Tech Stack
 
@@ -42,6 +61,8 @@ The application is intended as a portfolio-grade example of practical C#/.NET au
 Microsoft Office Interop, COM automation, external databases, cloud services, and unsafe code are not used.
 
 ## Architecture
+
+PriceCompare is a small layered solution with separate domain, application, infrastructure, and UI concerns.
 
 ```text
 PriceCompare.sln
@@ -106,7 +127,7 @@ dotnet run --project .\src\PriceCompare.Wpf\PriceCompare.Wpf.csproj
 dotnet test --configuration Release
 ```
 
-The tests cover core comparison behavior plus temporary CSV/XLSX import and XLSX report generation. File-based tests create their own temporary files and do not require Microsoft Excel.
+The solution contains 38 automated tests covering comparison statuses, price percentages, stock comparison, SKU normalization, duplicate handling, column mapping, CSV/XLSX import, cancellation, malformed input, and Excel report generation. File-based tests create their own temporary files and do not require Microsoft Excel.
 
 ## Usage
 
@@ -121,6 +142,25 @@ The tests cover core comparison behavior plus temporary CSV/XLSX import and XLSX
 Name and Stock mappings may be left empty. Stock changes are compared only when Stock is mapped for both files.
 
 Duplicate SKU groups are reported and all rows belonging to the duplicated SKU are excluded from comparison so the result remains deterministic.
+
+## Supported Input
+
+Supported formats:
+
+- `.xlsx`
+- `.csv`
+
+Required mappings:
+
+- SKU
+- Price
+
+Optional mappings:
+
+- Name
+- Stock
+
+SKU values are trimmed and compared case-insensitively.
 
 ## Input example
 
@@ -187,3 +227,7 @@ Not implemented in the current version:
 - database history
 - CLI mode
 - ERP/API integrations
+
+## Project Purpose
+
+This project was built as a portfolio example of a production-style Windows automation tool using C#, WPF, Excel/CSV processing, validation, testing, and layered architecture.
