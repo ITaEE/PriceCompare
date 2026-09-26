@@ -10,7 +10,23 @@ The application is intended as a portfolio-grade example of practical C#/.NET au
 
 ## Screenshots
 
-Screenshots will be added after the final UI capture. The planned real captures and their reproducible states are listed in [docs/screenshots/README.md](docs/screenshots/README.md).
+### Comparison results
+
+Real sample comparison using the included CSV files.
+
+![PriceCompare comparison results](docs/screenshots/comparison-results.png)
+
+### Column mapping
+
+Old and new price lists with independently detected column mappings.
+
+![PriceCompare main window](docs/screenshots/main-window.png)
+
+### Excel report
+
+Generated XLSX report with price and stock changes.
+
+![PriceCompare Excel report](docs/screenshots/excel-report.png)
 
 ## Features
 

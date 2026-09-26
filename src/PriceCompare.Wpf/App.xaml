@@ -21,9 +21,10 @@
         </Style>
 
         <Style TargetType="ComboBox">
-            <Setter Property="Padding" Value="8,5" />
+            <Setter Property="Padding" Value="10,0,32,0" />
             <Setter Property="Margin" Value="4" />
-            <Setter Property="MinWidth" Value="150" />
+            <Setter Property="MinHeight" Value="34" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
 
         <Style TargetType="GroupBox">
